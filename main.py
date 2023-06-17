@@ -11,10 +11,18 @@ env = Environment(
 template = env.get_template('template.html')
 
 event1 = datetime.datetime.now().year
-delta = event1-1919
+time_years = event1-1902
+
+if time_years % 10 == 1:
+    time_word = "год"
+elif (time_years % 10 >= 2) and (time_years % 10 <= 4):
+    time_word = "года"    
+else:
+    time_word = "лет"
 
 rendered_page = template.render(
-    time_years =delta
+    time_years = time_years,
+    time_word = time_word
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
