@@ -1,4 +1,5 @@
 import pandas
+import collections
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -117,6 +118,38 @@ import pandas
         </div>
 
         <div class="row">   
+          {% for key,values in list_wine.items() %}
+          <div class="container">
+            <div class="row">
+              <div class="col-12 section-title text-center mb-5">
+                <p>
+                  <h2 class="d-block">{{key}}</h2>
+                </p>
+              </div>
+            </div>
+          </div>
+            {% for v in values %}
+              <div class="col-lg-4 mb-5 col-md-6">
+                  <div class="wine_v_1 text-center pb-4 pt-5">
+                    {% if v['Акция'] %}
+                      <img  src =" assets/profitable.png " стиль =" ширина: 10 рем; высота: 10 рем; положение: абсолютное; справа: -20 пикселей; вверху: -20 пикселей; " >
+                    {% endif %}
+                      <img src="images/{{v['Картинка']}}" alt="Image" class="img-fluid">
+                      <div>
+                      <h3 class="heading mt-3 mb-3 text-dark">{{v['Название']}}</h3>
+                      <p>
+                          {% if v['Сорт'] %}
+                            Сорт винограда - {{v['Сорт']}}<br/>
+                          {% endif %}
+                          <span class="price">350 р.</span>
+                      </p>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %} 
+          {% endfor %} 
+
+        <!-- <div class="row">   
           {% for index in name_wine %}
             <div class="col-lg-4 mb-5 col-md-6">
                 <div class="wine_v_1 text-center pb-4 pt-5">
@@ -130,10 +163,7 @@ import pandas
                     </div>
                 </div>
             </div>
-          {% endfor %} 
-
-
-
+          {% endfor %}  -->
 
         <!-- <div class="row">
           <div class="col-lg-4 mb-5 col-md-6">
