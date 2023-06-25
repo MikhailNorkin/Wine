@@ -7,10 +7,10 @@ import collections
 from pprint import pprint
 
 excel_wine = pandas.read_excel('wine.xlsx',sheet_name='Лист1')
-name_wine = excel_wine['Название'].tolist()
+name_wines = excel_wine['Название'].tolist()
 
 excel_kat = pandas.read_excel('wine3.xlsx')
-kat_wine = list(set(excel_kat['Категория'].tolist()))
+category_wines = list(set(excel_kat['Категория'].tolist()))
 excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1',na_values=['N/A', 'NA'], keep_default_na=False)
 data_shot = excel_data_df.to_dict(orient='record')
 dict_of_lists = collections.defaultdict(list)
@@ -40,7 +40,7 @@ else:
 rendered_page = template.render(
     time_years = time_years,
     time_word = time_word,
-    name_wine = name_wine,
+    name_wine = name_wines,
     list_wine = dict_of_lists
 )
 
