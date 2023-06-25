@@ -12,7 +12,7 @@ name_wines = excel_wine['Название'].tolist()
 excel_kat = pandas.read_excel('wine3.xlsx')
 category_wines = list(set(excel_kat['Категория'].tolist()))
 excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1',na_values=['N/A', 'NA'], keep_default_na=False)
-data_shot = excel_data_df.to_dict(orient='record')
+data_shot = excel_data_df.to_dict('record')
 dict_of_lists = collections.defaultdict(list)
 
 for i in data_shot:
