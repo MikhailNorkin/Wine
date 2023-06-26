@@ -1,13 +1,24 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import datetime
 import pandas
 import collections
+import argparse
+import sys
 from pprint import pprint
 
-excel_wine = pandas.read_excel('wine.xlsx',sheet_name='Лист1')
-name_wines = excel_wine['Название'].tolist()
+
+parser = argparse.ArgumentParser(
+    description='Введите путь к файлу excel'
+)
+parser.add_argument('name', help='Путь к файлу')
+args = parser.parse_args()
+try:
+    excel_wine = pandas.read_excel(args.name,sheet_name='Лист1')
+    name_wines = excel_wine['Название'].tolist()
+except:
+    print('Вы ввели неверное имя файла. Запустите программу заново')    
+    sys.exit()
 
 excel_kat = pandas.read_excel('wine3.xlsx')
 category_wines = list(set(excel_kat['Категория'].tolist()))
