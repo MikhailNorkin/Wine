@@ -21,10 +21,10 @@ def get_time_name(time_years):
 def get_dict_of_lists(name_excel):
     excel_data_df = pandas.read_excel(name_excel, sheet_name='Лист1',na_values=['N/A', 'NA'], keep_default_na=False)
     data_shot = excel_data_df.to_dict('record')
-    dict_of_lists = collections.defaultdict(list)
+    dict = collections.defaultdict(list)
     for i in data_shot:
-        dict_of_lists[i['Категория']].append(i)
-    return dict_of_lists
+        dict[i['Категория']].append(i)
+    return dict
 
 
 def main():
