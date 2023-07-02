@@ -38,7 +38,7 @@ def main():
     try:
         excel_wine = pandas.read_excel(name_excel,sheet_name='Лист1')
         name_wines = excel_wine['Название'].tolist()
-    except:
+    except IOError:
         print('Вы ввели неверное имя файла. Запустите программу заново')    
         sys.exit()
 
