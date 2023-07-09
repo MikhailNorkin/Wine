@@ -5,7 +5,6 @@ import pandas
 import collections
 import argparse
 import sys
-from pprint import pprint
 
 
 def get_time_name(time_years):
