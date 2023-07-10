@@ -8,7 +8,9 @@ import sys
 
 
 def get_time_name(time_years):
-    if time_years % 10 == 1:
+    if (time_years % 100 >= 12) and (time_years % 100 <= 14):
+        time_word = "лет"
+    elif time_years % 10 == 1:
         time_word = "год"
     elif (time_years % 10 >= 2) and (time_years % 10 <= 4):
         time_word = "года"    
