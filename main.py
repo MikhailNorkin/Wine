@@ -20,7 +20,7 @@ def get_time_name(time_years):
 
 
 def get_data_from_excel(name_excel):
-    excel_data_df = pandas.read_excel(name_excel, sheet_name='Лист1',na_values=['N/A', 'NA'], keep_default_na=False)
+    excel_data_df = pandas.read_excel(name_excel, sheet_name='Лист1', na_values=['N/A', 'NA'], keep_default_na=False)
     excel_data = excel_data_df.to_dict('record')
     category_wines = collections.defaultdict(list)
     for i in excel_data:
@@ -53,15 +53,15 @@ def main():
     template = env.get_template('template.html')
 
     event1 = datetime.datetime.now().year
-    time_years = event1-1902
+    time_years = event1 - 1902
 
     time_word = get_time_name(time_years)
 
     rendered_page = template.render(
-        time_years = time_years,
-        time_word = time_word,
-        name_wine = name_wines,
-        list_wine = category_wines
+        time_years=time_years,
+        time_word=time_word,
+        name_wine=name_wines,
+        list_wine=category_wines,
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
